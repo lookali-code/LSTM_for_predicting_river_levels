@@ -5,7 +5,8 @@ Developed as part of a university dissertation focused on time-series modelling 
 ## External Data Files
 
 Due to file size and repository constraints, the following dataset files are hosted externally. You can download them via the link below and place them in the `data/` directory.
-https://drive.google.com/drive/folders/1PHAVZBzzgnn9M_Drx8a6hEdfq6D5bbqv?usp=sharing
+https://drive.google.com/drive/folders/1PHAVZBzzgnn9M_Drx8a6hEdfq6D5bbqv?usp=sharing.
+The original data can be found https://environment.data.gov.uk/hydrology/explore. 
 ## Project Structure
 LSTM_for_predicting_river_levels/
 ├── data/ # Folder for input CSV files (not included due to size)
