@@ -1,7 +1,10 @@
-numpy==1.23.0
-pandas==1.5.0
-tensorflow==2.12.0
-esig==0.4.0
-iisignature==0.25
-scikit-learn==1.2.0
-matplotlib==3.7.0
+numpy==1.24.3
+pandas=2.0.3
+tensorflow==2.13.0
+esig==0.9.8.3
+iisignature==0.24
+scikit-learn==1.3.2
+matplotlib==3.7.5
+
+#potentially necessary for troubleshooting
+wheel==0.45.0
