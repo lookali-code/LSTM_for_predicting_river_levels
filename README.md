@@ -16,12 +16,6 @@ LSTM_for_predicting_river_levels/
 └── README.md # This file
 
 ## Getting Started
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/lookali-code/LSTM_for_predicting_river_levels.git
-cd LSTM_for_predicting_river_levels
-
 ## Model details
 Input: x-hour window of river level and flow readings from 13 upstream locations (x is decided by the user)
 
@@ -36,3 +30,8 @@ After running the script, you will find:
 models/RNN_YYYY-MM-DD_HH-MM-SS.h5 — Trained model saved with timestamp
 outputs/predictions_YYYY-MM-DD_HH-MM-SS.csv — CSV containing actual and predicted values
 outputs/plot_YYYY-MM-DD_HH-MM-SS.png — Plot image showing predicted vs actual river levels
+
+###  Clone the repository
+```bash
+git clone https://github.com/lookali-code/LSTM_for_predicting_river_levels.git
+cd LSTM_for_predicting_river_levels
