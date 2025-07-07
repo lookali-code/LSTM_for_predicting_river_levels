@@ -145,14 +145,26 @@ predictions = model.predict(X_test)
 mse = mean_squared_error(y_test, predictions)
 print(f"Mean Squared Error: {mse}")
 
-from datetime import datetime
-# Generate a unique filename with timestamp (so the model can be run again and again)
-timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-model_filename = f"RNN_{timestamp}.h5"
+# Set up output directories
+model_dir = Path("models")
+output_dir = Path("outputs")
 
-# Save the model 
-model.save(fr"D:\SanDiskSecureAccess Vault\Uni\Dissertation\{model_filename}")
-print(f"Model saved as '{model_filename}' in Dissertation folder")
+model_dir.mkdir(exist_ok=True)
+output_dir.mkdir(exist_ok=True)
+
+# Generate a unique filename with timestamp
+from datetime import datetime
+timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+model_filename = model_dir / f"RNN_{timestamp}.h5"
+predictions_filename = output_dir / f"predictions_{timestamp}.csv"
+
+# Save the model
+model.save(model_filename)
+print(f"Model saved as '{model_filename}'")
+
+# Save predictions to CSV
+predictions_df.to_csv(predictions_filename, index=False)
+print(f"Predictions saved to '{predictions_filename}'")
 
 test_timestamps = prediction_timestamps[len(X_train):]
 
@@ -162,11 +174,6 @@ predictions_df = pd.DataFrame({
     'Predicted': predictions.flatten()
 })
 
-
-# Save to CSV (same naming as model)
-predictions_filename = f"predictions_{timestamp}.csv"
-predictions_df.to_csv(fr"D:\SanDiskSecureAccess Vault\Uni\Dissertation\{predictions_filename}", index=False)
-print(f"Predictions saved to '{predictions_filename}'")
 #USED SIMPLY TO SEE IF THE NETWORK RAN CORRECTLY. CHANGING LABELS PROVIDES THE PLOTS SEEN IN THE PAPER (THIS WAS DONE AFTER USING THE SAVED PREDICTIONS AND A DIFFERENT CODE FILE FOR EASE)
 # Plot actual vs predicted values of Viking recorder using the original times
 plt.figure(figsize=(10, 6))
